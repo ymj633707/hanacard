@@ -16,6 +16,7 @@ font-family: 'Hana B';*/
 }
 
 #contents {}
+#footer {}
 
 /*contents layout*/
 #cont1 {
@@ -764,6 +765,7 @@ font-family: 'Hana B';*/
 
 /*life*/
 #life {
+  position: relative;
   height: 330px;
   background-color: blue;
 }
@@ -832,7 +834,7 @@ font-family: 'Hana B';*/
 
 #life .life_btn {
   position: absolute;
-  left: 0; bottom: 0;
+  left: 0; bottom: 86px;
   right: 0; /* width: 100%; */
   background-color: #fff;
 }
@@ -849,10 +851,157 @@ font-family: 'Hana B';*/
   width: 1px; height: 14px;
   background-color: #ccc;
 }
+/* li 자식을 불러와야하므로 li뒤에 붙여야함 */
+#life .life_btn ul li:nth-child(1)::after {
+  width: 0; height: 0;
+}
 #life .life_btn ul li a {
   font-size: 16px;
   color: #333;
   display: block;
   padding: 13px 10px;
   text-align: center;
+}
+
+#app {}
+#app .app_left{
+  float: left; width: 49%;
+  height: 200px;
+  background: #fff url(../img/mc_service_banner01_img.jpg) no-repeat 50px 45px;
+}
+#app .app_right{
+  float: right; width: 50%;
+  height: 200px;
+  background-color: #ddd;
+}
+
+#app .app_left ul{
+  overflow: hidden;
+  padding: 45px 0 10px 290px;
+}
+#app .app_left ul li{
+  /* 
+  float에 의한 부모의 깨짐 현상 막기
+  1. 부모의 높이값을 준다.
+  2. clear: both --> after 영역 사용
+  3. 막내 영역을 만들어서 clear:both;
+  4. 부모에게 overflow:hidden 적용(상황보기)
+  */
+  float: left;
+  width: 48px; height: 48px;
+  margin-right: 20px;
+  border: 1px solid #eaeaea;
+  border-radius: 10px;
+  overflow: hidden;
+}
+#app .app_left ul li a{}
+#app .app_left ul li a img{
+  transform: scale(1.05);
+}
+#app .app_left .al_text {
+  font-size: 16px;
+  color: #666;
+  padding-left: 290px;
+}
+#app .app_left .al_text a{}
+#app .app_left .al_text a strong{
+  display: block;
+  font-size: 20px;
+  color: #000;
+  line-height: 34px;
+}
+
+#app .app_right{}
+#app .app_right>div{
+  float: left;
+  font-size: 16px;
+  color: #fff;
+  text-align: center;
+  height: 70px;
+}
+#app .app_right .ar_ban1{
+  width: 25%;
+  background: #2f4359 url(../img/service_ban01.png) no-repeat 40px 50px;
+  padding-top: 130px;
+}
+#app .app_right .ar_ban2{
+  width: 25%;
+  background: #00907f url(../img/service_ban02.png) no-repeat 40px 50px;
+  padding-top: 130px;
+}
+#app .app_right .ar_ban3{
+  width: 50%;
+  background-color: #fff;
+  padding: 20px 20px 19px;
+  box-sizing: border-box;
+  height: auto;
+}
+#app .app_right .ar_ban3 .ban3_text {
+  font-size: 15px;
+  color: #666;
+  border-bottom: 1px solid #ddd;
+  padding: 20px 20px 30px 75px;
+  background: url(../img/service_ban03.png) no-repeat 10px 30px ;
+}
+#app .app_right .ar_ban3 .ban3_text h5{
+  font-size: 20px; color: #000;
+  padding-bottom: 5px;
+  
+}
+#app .app_right .ar_ban3 .ban3_slider {
+  color: #000;
+  font-size: 16px;
+} /*안적은부분 다시보기*/
+
+/*footer*/
+/*footer layout*/
+#footer_notice {
+  height: 71px;
+  line-height: 71px;
+  background-color: #fff;
+  border-bottom: 1px solid #e6e6e6;
+}
+#footer_info {
+  height: 242px;
+  background-color: #f7f8f9;
+}
+
+/*footer_notice*/
+.notice {}
+.notice h3{
+  float: left;
+  font-size: 15px;
+  margin-right: 30px;
+}
+.notice h3 i{
+  font-size: 10px;
+  border: 1px solid #ccc;
+  display: inline-block; 
+  padding: 4px;
+  vertical-align: 3px; /* 가운데로 맞추기*/
+}
+
+.notice ul {
+  float: left;
+}
+.notice ul li {
+  width: 400px;
+  /*말줄임말-넓이를 설정해야 한다*/
+  overflow: hidden;
+  white-space: nowrap; /*글자를 떨어뜨리지말라는 뜻*/
+  text-overflow: ellipsis; /*글자가 영역보다 넘치면 ... 으로 무너뜨리라는뜻*/
+  margin-right: 50px;
+}
+.notice ul li a {
+  color: #666;
+  font-size: 15px;
+  position: relative;
+  padding-left: 8px;
+}
+.notice ul li a::after {
+  content: "";
+  width: 3px; height: 3px;
+  background-color: #666;
+  position: absolute;
+  left: 0; top: 10px;
 }
